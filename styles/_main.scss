@@ -1,0 +1,44 @@
+body {
+    color: white; 
+    font-family: Klavika, sans-serif;
+    margin:0;
+    width: 100%;
+    h1, h2, h3, h4 ´{
+        
+    text-transform: uppercase;
+    }
+}
+.main {
+    align-items: space-between;
+    background-color:$backgroundgrey;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 900px;
+    padding: 30px;
+    width:100%;
+    header {
+        align-items: center;
+        display:flex;
+        justify-content: flex-end;
+        margin: 0;
+        width: 100%;
+        h1 {
+            font-size: 60px;
+            margin: 15px;
+            color: $darkgrey;
+        }
+    }
+}
+
+
+.logo {
+ 
+        fill:white;
+        width: 100px;
+        height:100px;
+        filter:  invert(97%) sepia(0%) saturate(7487%) hue-rotate(239deg) brightness(115%) contrast(95%);
+
+        
+   
+}

@@ -1,0 +1,27 @@
+ .puzzle-section {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top:30px;
+
+    width: 100%;
+    .puzzle-container {
+        box-sizing: border-box;
+        border: 5px solid $darkgrey;
+        height: 400px;
+        justify-content: center;
+        width: 400px;
+        .puzzle-background {
+            box-sizing: border-box;
+            background-image: url('../assets/monks.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            opacity: 0.4;
+            width:100%;
+        }
+        }
+}

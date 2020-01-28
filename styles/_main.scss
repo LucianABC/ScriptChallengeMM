@@ -23,10 +23,12 @@ body {
         justify-content: flex-end;
         margin: 0;
         width: 100%;
+        div {
+            overflow: hidden;
+        }
         h1 {
             font-size: 60px;
             margin: 15px;
-            color: $darkgrey;
         }
     }
 }

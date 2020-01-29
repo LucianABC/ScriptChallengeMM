@@ -59,13 +59,10 @@ const movePiece = (pieceNum) => {
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
 
 DOMpieces.forEach(piece => 
-    piece.addEventListener("click", ()=>{
+    piece.addEventListener("click", async()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-         movePiece(pieceNumber);
-        if (isCompleted()) {
-            let puzzleImage= document.querySelector(".puzzle-background");
-            puzzleImage.classList.add("puff-in-center");
-        }
+        await movePiece(pieceNumber);
+        await puzzleCompleted();
         
     })
 );

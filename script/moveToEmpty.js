@@ -1,5 +1,4 @@
 const isMovable = (tile) => {
-   
     let tileKey = tile;
     let selectedPiece = pieces[tileKey];
     
@@ -32,18 +31,6 @@ const isMovable = (tile) => {
         return false
     }
 };
-
-const movePiece = (pieceNum) => {
-    //Move piece
-    let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
-    piece = pieces[pieceNum];
-    for (let key of Object.keys(positionMap)){    
-        if(piece.currentPosition==key){
-            DOMPiece.style.top = `${positionMap[key].top}px`;
-            DOMPiece.style.left= `${positionMap[key].left}px`;
-        }   
-    }
-}
 
 const moveToEmptySlot = (pieceNum) => {   
     //Error if can't be moved

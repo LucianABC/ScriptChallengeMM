@@ -32,13 +32,11 @@ const isMovable = (tile) => {
     }
 };
 
-const movePiece = (pieceNum) => {   
-    //Error if can't be moved
-    if (!isMovable(pieceNum)) {
-        return "This piece cannot be moved"
-    } 
+const movePiece = (pieceNum, newPos) => {   
+
+
     //Change position
-    let newPosition = pieces.empty.currentPosition;
+    let newPosition = pieces[newPos].currentPosition;
     let oldPosition = pieces[pieceNum].currentPosition;
     pieces[pieceNum].currentPosition = newPosition;
     pieces.empty.currentPosition = oldPosition;
@@ -61,8 +59,14 @@ let DOMpieces = document.querySelectorAll(".puzzle-piece");
 DOMpieces.forEach(piece => 
     piece.addEventListener("click", async()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-        await movePiece(pieceNumber);
-        await puzzleCompleted();
+           //Error if can't be moved
+        if (!isMovable(pieceNumber)) {
+            return "This piece cannot be moved"
+        }  else {
+            
+            await movePiece(pieceNumber, "empty");
+            await puzzleCompleted();
+        }
         
     })
 );

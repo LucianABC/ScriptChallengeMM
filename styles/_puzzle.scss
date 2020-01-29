@@ -35,6 +35,8 @@
             .puzzle-piece {
                 box-sizing:border-box;
                 position: absolute;
+                
+            transition: all 0.5s ease-in;
                 width: 50%;
                 height: 50%;
             }
@@ -50,7 +52,6 @@
 
 
 #piece-2 {
-    
     top: 0px;
     left: 200px;
     background-color: blue;

@@ -1,4 +1,3 @@
-const puzzle = document.querySelector(".puzzle");
 let tileSize=200;
 
 let pieces = {
@@ -55,7 +54,6 @@ const movementMap = [
                 [positionMap[2],positionMap[3]]
 ];
 
-
 const isMovable = (tile) => {
     let tileNum = tile;
     let selectedPiece = pieces[tileNum];
@@ -63,6 +61,7 @@ const isMovable = (tile) => {
     let emptySpace = pieces.empty;
     let movablePieces = [];
 
+    //Check which pieces are available to move
     switch (emptySpace.currentPosition){
         case 0:
             movablePieces = [1,2]
@@ -80,7 +79,8 @@ const isMovable = (tile) => {
             movablePieces = [1,2]
         break
     }
-
+    
+    //Can the piece be moved?
     if (movablePieces.includes(selectedPiece.currentPosition)){
         return true
     } else {
@@ -89,19 +89,19 @@ const isMovable = (tile) => {
 };
 
 const movePiece = (pieceNum) => {   
-    let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
-    let newPosition = pieces.empty.currentPosition;
-    let oldPosition = pieces[pieceNum].currentPosition;
-
+    //Error if can't be moved
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     } 
-
+    //Change position
+    let newPosition = pieces.empty.currentPosition;
+    let oldPosition = pieces[pieceNum].currentPosition;
     pieces[pieceNum].currentPosition = newPosition;
     pieces.empty.currentPosition = oldPosition;
 
-    for (let key of Object.keys(positionMap)){
-        
+    //Move piece
+    let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
+    for (let key of Object.keys(positionMap)){    
         if(newPosition==key){
             DOMPiece.style.top = `${positionMap[key].top}px`;
             DOMPiece.style.left= `${positionMap[key].left}px`;

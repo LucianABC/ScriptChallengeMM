@@ -60,19 +60,12 @@ const moveToEmptySlot = (pieceNum) => {
     movePiece(pieceNum);
 }
 
-
-
-
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
 
 DOMpieces.forEach(piece => 
     piece.addEventListener("click", async()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-        
-        
             await moveToEmptySlot(pieceNumber);
             await puzzleCompleted();
-       
-        
     })
 );

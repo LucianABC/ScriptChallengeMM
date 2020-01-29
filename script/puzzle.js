@@ -5,26 +5,19 @@ let pieces = {
     1: {
       correctPosition: 0,
       currentPosition: 0,
-      top: 0,
-      left: 0
     },
     2: {
       correctPosition: 1,
       currentPosition: 1,
-      top: 0,
-      left: tileSize 
     },
     3: {
       correctPosition: 2,
       currentPosition: 2,
-      top: tileSize,
-      left: 0
+ 
     },
     empty: {
       correctPosition: 3,
       currentPosition: 3,
-      top: tileSize,
-      left: tileSize
     }
 }
 
@@ -97,20 +90,23 @@ const isMovable = (tile) => {
 
 const movePiece = (pieceNum) => {   
     let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
-    let emptySlotPosition = pieces.empty.currentPosition;
-    let currentPiece = pieces[pieceNum];
-    let piecePosition = currentPiece.currentPosition;
+    let newPosition = pieces.empty.currentPosition;
+    let oldPosition = pieces[pieceNum].currentPosition;
 
-    if (isMovable(pieceNum)){
-        currentPiece.currentPosition = emptySlotPosition;
-        pieces.empty.currentPosition = piecePosition;
-    
-        for (let key of positionMap.keys){
-            if(currentPiece.currentPosition==key){
-                DOMPiece.style.top = positionMap[key].top;
-                DOMPiece.style.left= positionMap[key].left;
-            }   
-        }
+    if (!isMovable(pieceNum)) {
+        return "This piece cannot be moved"
+    } 
+
+    pieces[pieceNum].currentPosition = newPosition;
+    pieces.empty.currentPosition = oldPosition;
+
+    for (let key of Object.keys(positionMap)){
+        
+        if(newPosition==key){
+            DOMPiece.style.top = `${positionMap[key].top}px`;
+            DOMPiece.style.left= `${positionMap[key].left}px`;
+        }   
     }
+
 }
 

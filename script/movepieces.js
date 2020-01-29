@@ -1,6 +1,7 @@
 const isMovable = (tile) => {
-    let tileNum = tile;
-    let selectedPiece = pieces[tileNum];
+   
+    let tileKey = tile;
+    let selectedPiece = pieces[tileKey];
     
     let emptySpace = pieces.empty;
     let movablePieces = [];
@@ -32,41 +33,46 @@ const isMovable = (tile) => {
     }
 };
 
-const movePiece = (pieceNum, newPos) => {   
-
-
-    //Change position
-    let newPosition = pieces[newPos].currentPosition;
-    let oldPosition = pieces[pieceNum].currentPosition;
-    pieces[pieceNum].currentPosition = newPosition;
-    pieces.empty.currentPosition = oldPosition;
-
+const movePiece = (pieceNum) => {
     //Move piece
     let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
+    piece = pieces[pieceNum];
     for (let key of Object.keys(positionMap)){    
-        if(newPosition==key){
+        if(piece.currentPosition==key){
             DOMPiece.style.top = `${positionMap[key].top}px`;
             DOMPiece.style.left= `${positionMap[key].left}px`;
         }   
     }
-    
-
-
 }
+
+const moveToEmptySlot = (pieceNum) => {   
+    //Error if can't be moved
+    if (!isMovable(pieceNum)) {
+        return "This piece cannot be moved"
+    }  
+
+    //Change position
+    let newPosition = pieces["empty"].currentPosition;//pieces[2] 2
+    let oldPosition = pieces[pieceNum].currentPosition;
+    pieces[pieceNum].currentPosition = newPosition;
+    pieces["empty"].currentPosition = oldPosition;
+
+    movePiece(pieceNum);
+}
+
+
+
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
 
 DOMpieces.forEach(piece => 
     piece.addEventListener("click", async()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-           //Error if can't be moved
-        if (!isMovable(pieceNumber)) {
-            return "This piece cannot be moved"
-        }  else {
-            
-            await movePiece(pieceNumber, "empty");
+        
+        
+            await moveToEmptySlot(pieceNumber);
             await puzzleCompleted();
-        }
+       
         
     })
 );

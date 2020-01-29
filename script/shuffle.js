@@ -1,20 +1,11 @@
+
 const shuffle = () =>{
-    let keys = Object.keys(pieces);
-    let randomNumbers = [];
-   
+    let piecesKeys = Object.keys(pieces);
+    let randomCombination = Math.floor(Math.random() * 4)+1;
 
-    for (let key of keys) {
-        let random = Math.floor(Math.random() * 4);
-        let numberUsed= randomNumbers.includes(random);
+    let positionKeys = Object.keys(positionMap);
 
-        while (numberUsed){
-            random = Math.floor(Math.random() * 4);
-            numberUsed= randomNumbers.includes(random)
-        }
-        randomNumbers.push(random);
-
-        pieces[key].currentPosition=random;
-        movePiece(key,keys[random]);
+    for (let key of piecesKeys) {
+        
     }
-    console.log(randomNumbers);
 }

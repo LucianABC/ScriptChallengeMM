@@ -115,6 +115,7 @@ body h1, body h2, body h3, body h4 ´ {
   border: 5px solid #272727;
   height: 400px;
   justify-content: center;
+  position: relative;
   width: 400px;
 }
 .puzzle-section .puzzle-container .puzzle-background {
@@ -126,6 +127,40 @@ body h1, body h2, body h3, body h4 ´ {
   height: 100%;
   opacity: 0.4;
   width: 100%;
+}
+.puzzle-section .puzzle-container .puzzle {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.puzzle-section .puzzle-container .puzzle .puzzle-piece {
+  box-sizing: border-box;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+#piece-1 {
+  top: 0;
+  left: 200px;
+  background-color: red;
+}
+
+#piece-2 {
+  top: 200px;
+  left: 200px;
+  background-color: blue;
+}
+
+#piece-3 {
+  top: 0;
+  left: 0;
+  background-color: green;
 }
 
 /*# sourceMappingURL=style.css.map */

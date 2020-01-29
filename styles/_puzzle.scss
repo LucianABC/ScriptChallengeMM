@@ -1,4 +1,4 @@
- .puzzle-section {
+.puzzle-section {
     align-items: center;
     box-sizing: border-box;
     display: flex;
@@ -10,6 +10,7 @@
         border: 5px solid $darkgrey;
         height: 400px;
         justify-content: center;
+        position: relative;
         width: 400px;
         .puzzle-background {
             box-sizing: border-box;
@@ -21,5 +22,42 @@
             opacity: 0.4;
             width:100%;
         }
+        .puzzle {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            left: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            .puzzle-piece {
+                box-sizing:border-box;
+                position: absolute;
+                width: 50%;
+                height: 50%;
+            }
         }
+    }
+}
+
+#piece-1 {
+    top: 0;
+    left: 200px;
+    background-color: red;
+}
+
+
+#piece-2 {
+    
+    top: 200px;
+    left: 200px;
+    background-color: blue;
+}
+#piece-3 {
+    
+    top: 0;
+    left: 0;
+    background-color: green;
 }

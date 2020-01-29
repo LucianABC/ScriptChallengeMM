@@ -53,3 +53,11 @@ const movePiece = (pieceNum) => {
     }
 }
 
+let DOMpieces = document.querySelectorAll(".puzzle-piece");
+
+DOMpieces.forEach(piece => 
+    piece.addEventListener("click",()=>{
+        let pieceNumber = parseInt(piece.innerHTML);
+        movePiece(pieceNumber);
+    })
+);

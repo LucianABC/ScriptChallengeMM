@@ -3,25 +3,25 @@ let tileSize=200;
 
 let pieces = {
     1: {
-      correctPosition: 1,
+      correctPosition: 0,
       currentPosition: 0,
       top: 0,
       left: 0
     },
     2: {
-      correctPosition: 2,
+      correctPosition: 1,
       currentPosition: 1,
       top: 0,
       left: tileSize 
     },
     3: {
-      correctPosition: 3,
+      correctPosition: 2,
       currentPosition: 2,
       top: tileSize,
       left: 0
     },
     empty: {
-      correctPosition: 4,
+      correctPosition: 3,
       currentPosition: 3,
       top: tileSize,
       left: tileSize
@@ -64,11 +64,13 @@ const movementMap = [
 
 
 const isMovable = (tile) => {
-    let selectedPiece = pieces[tile];
+    let tileNum = tile;
+    let selectedPiece = pieces[tileNum];
+    
     let emptySpace = pieces.empty;
     let movablePieces = [];
 
-    switch (emptySpace.position){
+    switch (emptySpace.currentPosition){
         case 0:
             movablePieces = [1,2]
         break
@@ -86,25 +88,25 @@ const isMovable = (tile) => {
         break
     }
 
-    if (movablePieces.includes(selectedPiece.position)){
+    if (movablePieces.includes(selectedPiece.currentPosition)){
         return true
     } else {
         return false
     }
 };
 
-const movePiece = (pieceNum) => {
-    let emptySlotPosition = pieces.empty.position;
-    let currentPiece = pieces[pieceNum];
-    let piecePosition = currentPiece.position;
+const movePiece = (pieceNum) => {   
     let DOMPiece = document.querySelector(`#piece-${pieceNum}`);
+    let emptySlotPosition = pieces.empty.currentPosition;
+    let currentPiece = pieces[pieceNum];
+    let piecePosition = currentPiece.currentPosition;
 
     if (isMovable(pieceNum)){
-        currentPiece.position = emptySlotPosition;
-        pieces.empty.position = piecePosition;
+        currentPiece.currentPosition = emptySlotPosition;
+        pieces.empty.currentPosition = piecePosition;
     
         for (let key of positionMap.keys){
-            if(currentPiece.position==key){
+            if(currentPiece.currentPosition==key){
                 DOMPiece.style.top = positionMap[key].top;
                 DOMPiece.style.left= positionMap[key].left;
             }   

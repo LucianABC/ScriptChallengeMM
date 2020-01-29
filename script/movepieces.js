@@ -51,13 +51,21 @@ const movePiece = (pieceNum) => {
             DOMPiece.style.left= `${positionMap[key].left}px`;
         }   
     }
+    
+
+
 }
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
 
 DOMpieces.forEach(piece => 
-    piece.addEventListener("click",()=>{
+    piece.addEventListener("click", ()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-        movePiece(pieceNumber);
+         movePiece(pieceNumber);
+        if (isCompleted()) {
+            let puzzleImage= document.querySelector(".puzzle-background");
+            puzzleImage.classList.add("puff-in-center");
+        }
+        
     })
 );

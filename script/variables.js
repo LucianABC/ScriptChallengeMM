@@ -3,15 +3,15 @@ let tileSize=200;
 let pieces = {
     1: {
       correctPosition: 0,
-      currentPosition: 0,
+      currentPosition: 1,
     },
     2: {
       correctPosition: 1,
-      currentPosition: 1,
+      currentPosition: 2,
     },
     3: {
       correctPosition: 2,
-      currentPosition: 2,
+      currentPosition: 0,
  
     },
     empty: {

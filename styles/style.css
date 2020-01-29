@@ -60,6 +60,43 @@
     color: #272727;
   }
 }
+.puff-in-center {
+  -webkit-animation: puff-in-center 0.8s cubic-bezier(0.47, 0, 0.745, 0.715) backwards;
+  animation: puff-in-center 0.8s cubic-bezier(0.47, 0, 0.745, 0.715) backwards;
+}
+
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
 body {
   color: white;
   font-family: Klavika, sans-serif;
@@ -127,41 +164,48 @@ body h1, body h2, body h3, body h4 ´ {
   height: 100%;
   opacity: 0.4;
   width: 100%;
+  z-index: 0;
 }
 .puzzle-section .puzzle-container .puzzle {
+  box-shadow: inset 0px 0px 52px 20px rgba(0, 0, 0, 0.73);
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  left: 0;
   height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 10;
 }
 .puzzle-section .puzzle-container .puzzle .puzzle-piece {
+  background-image: url("../assets/monks.jpg");
+  background-size: 400px;
   box-sizing: border-box;
+  color: transparent;
+  font-size: 1px;
+  height: 50%;
   position: absolute;
   transition: all 0.5s ease-in;
   width: 50%;
-  height: 50%;
 }
 
 #piece-1 {
   top: 0;
-  left: 0;
-  background-color: red;
+  left: 200px;
+  background-position: 0 0;
 }
 
 #piece-2 {
-  top: 0px;
-  left: 200px;
-  background-color: blue;
+  background-position: 200px 0;
+  top: 200px;
+  left: 0;
 }
 
 #piece-3 {
-  top: 200px;
+  background-position: 0 200px;
+  top: 0;
   left: 0;
-  background-color: green;
 }
 
 /*# sourceMappingURL=style.css.map */

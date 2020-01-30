@@ -153,6 +153,7 @@ body h1, body h2, body h3, body h4 ´ {
   flex-direction: column;
   height: 900px;
   padding: 30px;
+  position: relative;
   width: 100%;
   justify-content: center;
 }
@@ -161,6 +162,9 @@ body h1, body h2, body h3, body h4 ´ {
   display: flex;
   justify-content: flex-end;
   margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
 }
 .main header div {

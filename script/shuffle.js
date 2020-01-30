@@ -14,13 +14,12 @@ const shuffle = () =>{
         }
         positionsUsed.push(randomNum);
 
-        if (key == "empty"){
-            pieces["empty"].currentPosition=randomNum;
-            return
-        }
-
         pieces[key].currentPosition = randomNum;
-        movePiece(key);
+        pieces[key].moveHistory=[randomNum];
+
+        if (key !== "empty"){
+            movePiece(key);
+        }
     }
 }
 

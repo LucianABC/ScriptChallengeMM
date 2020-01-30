@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     height: 900px;
     padding: 30px;
+    position: relative;
     width:100%;
     justify-content: center;
     header {
@@ -23,6 +24,9 @@ body {
         display:flex;
         justify-content: flex-end;
         margin: 0;
+        position:absolute;
+        top: 0;
+        right: 0;
         width: 100%;
         div {
             overflow: hidden;

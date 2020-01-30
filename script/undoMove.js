@@ -1,14 +1,17 @@
 const undo = (pieceNum, move) => {
     pieces["empty"].currentPosition = pieces[pieceNum].currentPosition;
     pieces[pieceNum].currentPosition = pieces[pieceNum].moveHistory[move];
-    movePiece(pieceNum);;
+    movePiece(pieceNum);
 }
 
-const restart = () => {
-    for (let pieceMoved of piecesMoved) {
-        undo(pieceMoved, 0);
-        pieces[pieceMoved].moveHistory = [];
+const blah = () => {
+    let piecesKeys = Object.keys(pieces);
+    for (let key of piecesKeys) {
+      if (key !== "empty"){
+        undo(key, 0);
+      } 
     }
+    piecesMoved = []
 }
 
 
@@ -20,3 +23,7 @@ undoButton.addEventListener("click",() =>{
     
     undo(lastPiece, lastMove);   
 })
+
+
+const restartButton = document.querySelector("#restart-button");
+restartButton.addEventListener("click", blah);

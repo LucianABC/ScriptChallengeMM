@@ -4,14 +4,21 @@ const undo = (pieceNum, move) => {
     movePiece(pieceNum);
 }
 
-const blah = () => {
+const restartPuzzle = () => {
+    if(isCompleted){
+        let puzzle = document.querySelector(".puzzle");
+        let puzzleImage= document.querySelector(".puzzle-background");
+        puzzle.classList.remove("fade-out");        
+        puzzleImage.classList.remove("fade-in") ;
+    }
+    
     let piecesKeys = Object.keys(pieces);
     for (let key of piecesKeys) {
       if (key !== "empty"){
         undo(key, 0);
       } 
     }
-    piecesMoved = []
+    piecesMoved = [];
 }
 
 
@@ -26,4 +33,4 @@ undoButton.addEventListener("click",() =>{
 
 
 const restartButton = document.querySelector("#restart-button");
-restartButton.addEventListener("click", blah);
+restartButton.addEventListener("click", restartPuzzle);

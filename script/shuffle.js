@@ -1,5 +1,8 @@
 
 const shuffle = () =>{
+    
+    reinitializePuzzle();
+    
     let piecesKeys = Object.keys(pieces);
     let positionsUsed = [];
     let positionKeys = Object.keys(positionMap);
@@ -19,7 +22,6 @@ const shuffle = () =>{
             movePiece(key);
         }
     }
-
     piecesMoved = [];
 }
 

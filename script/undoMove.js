@@ -18,13 +18,7 @@ undoButton.addEventListener("click",() =>{
 
 //Restart puzzle
 const restartPuzzle = () => {
-    if(isCompleted){
-        let puzzle = document.querySelector(".puzzle");
-        let puzzleImage= document.querySelector(".puzzle-background");
-        puzzle.classList.remove("fade-out");        
-        puzzleImage.classList.remove("fade-in") ;
-    }
-
+    reinitializePuzzle();
     let piecesKeys = Object.keys(pieces);
     for (let key of piecesKeys) {
       if (key !== "empty"){

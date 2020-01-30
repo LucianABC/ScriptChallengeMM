@@ -21,3 +21,12 @@ const puzzleCompleted = () => {
         puzzleImage.classList.add("fade-in") ;
     }
 }
+
+const reinitializePuzzle = () => {
+    if(isCompleted){
+        let puzzle = document.querySelector(".puzzle");
+        let puzzleImage= document.querySelector(".puzzle-background");
+        puzzle.classList.remove("fade-out");        
+        puzzleImage.classList.remove("fade-in") ;
+    }
+}

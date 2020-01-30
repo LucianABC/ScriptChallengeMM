@@ -8,15 +8,14 @@
     font-family: Klavika, sans-serif;
     font-size: 17px;
     height:30px;
-    transition: all 0.5s ease-in-out;
     .fa  {
         margin-right: 10px;
+        
+    transition: all 0.7s ease-in-out;
     }
     &:hover {
         color: white;
-        .fa {
-            font-size: 18px;
-        }
+      
         .fa-random {
             color: purple;
         }

@@ -28,16 +28,13 @@
   font-family: Klavika, sans-serif;
   font-size: 17px;
   height: 30px;
-  transition: all 0.5s ease-in-out;
 }
 .button .fa {
   margin-right: 10px;
+  transition: all 0.7s ease-in-out;
 }
 .button:hover {
   color: white;
-}
-.button:hover .fa {
-  font-size: 18px;
 }
 .button:hover .fa-random {
   color: purple;
@@ -186,7 +183,7 @@ body h1, body h2, body h3, body h4 ´ {
   width: 410px;
 }
 .puzzle-section .puzzle-container {
-  border: 5px solid #272727;
+  border: 5px solid black;
   height: 400px;
   justify-content: center;
   position: relative;

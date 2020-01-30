@@ -1,22 +1,26 @@
 let tileSize=200;
-
+let piecesMoved = []
 let pieces = {
     1: {
       correctPosition: 0,
       currentPosition: 1,
+      moveHistory:  [1]
     },
     2: {
       correctPosition: 1,
       currentPosition: 2,
+      moveHistory:  [2]
     },
     3: {
       correctPosition: 2,
       currentPosition: 0,
+      moveHistory:  [0]
  
     },
     empty: {
       correctPosition: 3,
       currentPosition: 3,
+      moveHistory:  [3]
     }
 }
 

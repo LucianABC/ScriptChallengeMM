@@ -23,3 +23,7 @@ const shuffle = () =>{
         movePiece(key);
     }
 }
+
+
+const shuffleButton = document.querySelector("#shuffle-button");
+shuffleButton.addEventListener("click", shuffle);

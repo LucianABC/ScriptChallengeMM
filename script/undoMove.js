@@ -15,10 +15,8 @@ const restart = () => {
 const undoButton = document.querySelector("#undo-button");
 undoButton.addEventListener("click",() =>{
     let lastPiece = piecesMoved[piecesMoved.length-1];
-    console.log(lastPiece);
     let moveHistory = pieces[lastPiece].moveHistory;
     let lastMove = moveHistory.length-2;
-    console.log(lastMove)
     
     undo(lastPiece, lastMove);   
 })

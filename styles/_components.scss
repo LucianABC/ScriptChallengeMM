@@ -1,0 +1,31 @@
+.button {
+
+    background-color: black;
+    box-sizing: border-box;
+    border: none;
+    color: $darkgrey;
+    cursor: pointer;
+    font-family: Klavika, sans-serif;
+    font-size: 17px;
+    height:30px;
+    .fa  {
+        margin-right: 10px;
+    }
+    &:hover {
+        color: white;
+        .fa {
+            font-size: 20px;
+        }
+        .fa-random {
+            color: purple;
+        }
+        
+        .fa-undo {
+            color: red;
+        }
+        
+        .fa-power-off {
+            color: green;
+        }
+    }
+}

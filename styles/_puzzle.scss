@@ -2,10 +2,12 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding-bottom: 30px;
     padding-top:30px;
-    width: 100%;
+    width: 410px;
+
     .puzzle-container {
         border: 5px solid $darkgrey;
         height: 400px;
@@ -50,6 +52,17 @@
             }
         }
     }
+    
+    .puzzle-menu {
+        align-items: center;
+        background-color: black;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        padding:15px;
+        width:100%;
+    }
+    
 }
 
 #piece-1 {

@@ -28,6 +28,7 @@
   font-family: Klavika, sans-serif;
   font-size: 17px;
   height: 30px;
+  transition: all 0.5s ease-in-out;
 }
 .button .fa {
   margin-right: 10px;
@@ -36,7 +37,7 @@
   color: white;
 }
 .button:hover .fa {
-  font-size: 20px;
+  font-size: 18px;
 }
 .button:hover .fa-random {
   color: purple;

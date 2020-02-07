@@ -34,19 +34,17 @@
             top: 0;
             width: 100%;
             z-index: 10;
-
             .puzzle-piece {
                 background-image: url('../assets/monks.jpg');
                 background-size: 400px;
-
+                background-repeat: no-repeat;
                 box-sizing:border-box;
                 color: transparent;
                 font-size: 1px;
-                height: 50%;
+                height: 25%;
                 position: absolute;
                 transition: all 0.5s ease-in;
-                width: 50%;
-                
+                width: 25%;              
             }
         }
     }
@@ -59,22 +57,96 @@
         justify-content: space-between;
         padding:15px;
         width:100%;
-    }
-    
+    } 
 }
 
 #piece-1 {
+    background-position: 0px 0px; 
     top: 0;
-    left: 200px;
-    background-position: 0 0; 
+    left: 0px;
 }
 #piece-2 {
-    background-position: 200px 0;
-    top: 200px;
-    left: 0;   
+    background-position: -100px 0;
+    left: 100px;   
+    top: 0px;
 } 
 #piece-3 {
-    background-position: 0 200px;
+    background-position: -200px 0px;
+    left: 200px; 
     top: 0;
+}
+ 
+#piece-4{
+    background-position: -300px 0px;
+    left: 300px; 
+    top: 0;
+}
+ //2nd row
+#piece-5 {
+    background-position: 0px -100px;
+    left: 0; 
+    top: 100px;
+}
+ 
+#piece-6 {
+    background-position: -100px -100px;
+    left: 100px; 
+    top: 100px;
+}
+ 
+#piece-7 {
+    background-position: -200px -100px;
+    top: 100px;
+    left: 200px; 
+}
+ 
+#piece-8 {
+    background-position: -300px -100px;
+    top: 100px;
+    left: 300px; 
+}
+//3rd row
+ 
+#piece-9 {
+    background-position: 0px -200px;
+    top: 200px;
     left: 0; 
 }
+ 
+#piece-10 {
+    background-position: -100px -200px;
+    top: 200px;
+    left: 100px; 
+}
+ 
+#piece-11 {
+    background-position: -200px -200px;
+    top: 200px;
+    left: 200px; 
+}
+
+#piece-12 {
+    background-position: -300px -200px;
+    top: 200px;
+    left: 300px; 
+}
+//4th row
+
+#piece-13 {
+    background-position: 0px -300px;
+    left: 0px; 
+    top: 300px;
+}
+
+#piece-14 {
+    background-position: -100px -300px;
+    left: 100px; 
+    top: 300px;
+}
+
+#piece-15 {
+    background-position: -200px -300px;
+    left: 200px; 
+    top: 300px;
+}
+

@@ -1,4 +1,4 @@
-let tileSize=200;
+let tileSize=100;
 let piecesMoved = []
 let pieces = {
     1: {
@@ -17,6 +17,79 @@ let pieces = {
       moveHistory:  [0]
  
     },
+    4: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+    1: {
+      correctPosition: 0,
+      currentPosition: 1,
+      moveHistory:  [1]
+    },
+    
+
     empty: {
       correctPosition: 3,
       currentPosition: 3,
@@ -24,32 +97,127 @@ let pieces = {
     }
 }
 
-const positionMap = {
-    0: {
+const positionMap = [
+  //1st row
+  [  
+    {
         y: 0,
         x:0,
         top: 0,
         left: 0
     },
-    1: {
-        y: 0,
-        x:1,
-        top: 0,
-        left: tileSize 
+    {
+      y: 0,
+      x:1,
+      top: 0,
+      left: -tileSize 
     },
-    2: {
+    {
         y: 1,
         x:0,
-        top: tileSize,
-        left: 0
+        top: 0,
+        left: -2*tileSize
     },
-    3: {
+    {
         y: 1,
         x:1,
-        top: tileSize,
-        left: tileSize
-    } 
-}
+        top: 0,
+        left: -3*tileSize
+
+    }
+  ],
+  //2nd row
+   [
+      {
+      y: 1,
+      x:1,
+      top: -tileSize,
+      left: 0
+    },
+      
+   {
+      y: 1,
+      x:1,
+      top: -tileSize,
+      left: -tileSize
+    },
+      
+   {
+      y: 1,
+      x:1,
+      top: -tileSize,
+      left: -2*tileSize
+    },
+      
+   {
+      y: 1,
+      x:1,
+      top: -tileSize,
+      left: -3*tileSize
+    },
+  ]
+  //3rd row 
+  [
+   {
+      y: 1,
+      x:1,
+      top: -2*tileSize,
+      left: 0
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top: -2*tileSize,
+      left: -tileSize
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top:-2*tileSize,
+      left: -2*tileSize
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top: tileSize,
+      left: -3*tileSize
+    },
+  ],
+  //4th row
+  [  
+    {
+      y: 1,
+      x:1,
+      top: -3*tileSize,
+      left: 0
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top: -3*tileSize,
+      left: -tileSize
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top: -3*tileSize,
+      left: -2*tileSize
+    },
+      
+    {
+      y: 1,
+      x:1,
+      top: -3*tileSize,
+      left: -3* tileSize
+    },
+       
+  ]
+]
 
 const movementMap = [
              //top

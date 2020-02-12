@@ -53,20 +53,25 @@ const moveToEmptySlot = (pieceNum) => {
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     }  
-
     //Change position with empty slot
-    let emptyX = pieces[empty].currentX; 
-    let emptyY =pieces[empty].currentY;
+    let emptyX = pieces["empty"].currentX; 
+    let emptyY =pieces["empty"].currentY;
 
+    let currentXpos = pieces[pieceNum].currentX;
+    let currentYpos = pieces[pieceNum].currentY;
+    pieces["empty"].currentX=currentXpos;
+    pieces["empty"].currentY=currentYpos;
+    
+    //Move piece
     movePiece(pieceNum, emptyX, emptyY);
 }
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
 
 DOMpieces.forEach(piece => 
-    piece.addEventListener("click", async()=>{
+    piece.addEventListener("click", ()=>{
         let pieceNumber = parseInt(piece.innerHTML);
-            await moveToEmptySlot(pieceNumber);
-            await puzzleCompleted();
+            moveToEmptySlot(pieceNumber);
+            puzzleCompleted();
     })
 );

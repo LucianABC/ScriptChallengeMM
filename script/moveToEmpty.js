@@ -1,34 +1,50 @@
 const isMovable = (tile) => {
     let tileKey = tile;
-    let selectedPiece = pieces[tileKey];
-    
     let emptySpace = pieces.empty;
+    let emptyXposition = emptySpace.currentX;
+    let emptyYposition= emptySpace.currentY;
     let movablePieces = [];
 
-    //Check which pieces are available to move
-    switch (emptySpace.currentPosition){
-        case 0:
-            movablePieces = [1,2]
-        break
-        
-        case 1:
-            movablePieces = [0,3]
-        break
-        
-        case 2:
-            movablePieces = [0,3]
-        break
-        
-        case 3:
-            movablePieces = [1,2]
-        break
+    let keys = Object.keys(pieces);
+    
+    for (let key of keys){
+        if (emptyYposition+1 >= 0 && emptyYposition+1 <= 3){
+            let x=emptyXposition;
+            let y=emptyYposition+1;
+
+            if (pieces[key].currentX == x && pieces[key].currentY == y) {
+                movablePieces.push(key)
+            }
+        }
+        if (emptyYposition-1 >= 0 && emptyYposition-1 <= 3){
+            let x=emptyXposition;
+            let y=emptyYposition+1;
+
+            if (pieces[key].currentX == x && pieces[key].currentY == y) {
+                movablePieces.push(key)
+            }
+        }
+        if (emptyXposition+1 >= 0 && emptyXposition+1 <= 3){
+            let x=emptyXposition+1;
+            let y=emptyYposition;
+
+            if (pieces[key].currentX == x && pieces[key].currentY == y) {
+                movablePieces.push(key)
+            }
+        }
+        if (emptyXposition-1 >= 0 && emptyXposition-1 <= 3){
+            let x=emptyXposition-1;
+            let y=emptyYposition;
+
+            if (pieces[key].currentX == x && pieces[key].currentY == y) {
+                movablePieces.push(key)
+            }
+        }
+
     }
     
-    //Can the piece be moved?
-    if (movablePieces.includes(selectedPiece.currentPosition)){
+    if (movablePieces.includes(tileKey)){
         return true
-    } else {
-        return false
     }
 };
 

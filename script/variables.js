@@ -1,228 +1,129 @@
 let tileSize=100;
 let piecesMoved = []
+
 let pieces = {
     1: {
-      correctPosition: 0,
-      currentPosition: 1,
+      correctX: 0,
+      correctY:0,
+      //currentY:  ,
+      //currentX:,
       moveHistory:  [1]
     },
     2: {
-      correctPosition: 1,
+      correctX: 0,
+      correctY: 1,
+      //currentY:
+      //currentX:
       currentPosition: 2,
       moveHistory:  [2]
     },
     3: {
-      correctPosition: 2,
-      currentPosition: 0,
+      correctX: 0,
+      correctY: 2,
+      //currentX:
+      //currentY:
       moveHistory:  [0]
  
     },
     4: {
-      correctPosition: 0,
-      currentPosition: 1,
+      correctX: 0,
+      correctY: 3,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    5: {
+      correctX: 1,
+      correctY: 0,
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    6: {
+      correctX: 1,
+      correctY: 1,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    7: {
+      correctX: 1,
+      correctY: 2,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    8: {
+      correctX: 1,
+      correctY: 3,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    9: {
+      correctX: 2,
+      correctY: 0,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    10: {
+      correctX: 2,
+      correctY: 1,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    11: {
+      correctX: 2,
+      correctY: 2,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    12: {
+      correctX: 2,
+      correctY: 3,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    13: {  
+      correctX: 3,
+      correctY: 0,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    14: {
+      correctX: 3,
+      correctY: 1,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-    1: {
-      correctPosition: 0,
-      currentPosition: 1,
+    15: {
+      correctX: 3,
+      correctY: 2,
+      //currentX:
+      //currentY:
       moveHistory:  [1]
     },
     
-
     empty: {
-      correctPosition: 3,
-      currentPosition: 3,
+      correctX: 3,
+      correctY: 3,
+      //currentX:
+      //currentY:
       moveHistory:  [3]
     }
 }
-
-const positionMap = [
-  //1st row
-  [  
-    {
-        y: 0,
-        x:0,
-        top: 0,
-        left: 0
-    },
-    {
-      y: 0,
-      x:1,
-      top: 0,
-      left: -tileSize 
-    },
-    {
-        y: 1,
-        x:0,
-        top: 0,
-        left: -2*tileSize
-    },
-    {
-        y: 1,
-        x:1,
-        top: 0,
-        left: -3*tileSize
-
-    }
-  ],
-  //2nd row
-   [
-      {
-      y: 1,
-      x:1,
-      top: -tileSize,
-      left: 0
-    },
-      
-   {
-      y: 1,
-      x:1,
-      top: -tileSize,
-      left: -tileSize
-    },
-      
-   {
-      y: 1,
-      x:1,
-      top: -tileSize,
-      left: -2*tileSize
-    },
-      
-   {
-      y: 1,
-      x:1,
-      top: -tileSize,
-      left: -3*tileSize
-    },
-  ]
-  //3rd row 
-  [
-   {
-      y: 1,
-      x:1,
-      top: -2*tileSize,
-      left: 0
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top: -2*tileSize,
-      left: -tileSize
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top:-2*tileSize,
-      left: -2*tileSize
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top: tileSize,
-      left: -3*tileSize
-    },
-  ],
-  //4th row
-  [  
-    {
-      y: 1,
-      x:1,
-      top: -3*tileSize,
-      left: 0
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top: -3*tileSize,
-      left: -tileSize
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top: -3*tileSize,
-      left: -2*tileSize
-    },
-      
-    {
-      y: 1,
-      x:1,
-      top: -3*tileSize,
-      left: -3* tileSize
-    },
-       
-  ]
-]
-
-const movementMap = [
-             //top
-                [positionMap[0],positionMap[1]]
-             //bot
-                [positionMap[2],positionMap[3]]
-];
-

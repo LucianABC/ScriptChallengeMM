@@ -54,13 +54,11 @@ const moveToEmptySlot = (pieceNum) => {
         return "This piece cannot be moved"
     }  
 
-    //Change position
-    let newPosition = pieces["empty"].currentPosition;//pieces[2] 2
-    let oldPosition = pieces[pieceNum].currentPosition;
-    pieces[pieceNum].currentPosition = newPosition;
-    pieces["empty"].currentPosition = oldPosition;
+    //Change position with empty slot
+    let emptyX = pieces[empty].currentX; 
+    let emptyY =pieces[empty].currentY;
 
-    movePiece(pieceNum);
+    movePiece(pieceNum, emptyX, emptyY);
 }
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");

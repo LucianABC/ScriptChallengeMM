@@ -7,36 +7,34 @@ let pieces = {
       correctY:0,
       //currentY:  ,
       //currentX:,
-      moveHistory:  [1]
+      positionHistory:  []
     },
     2: {
       correctX: 0,
       correctY: 1,
       //currentY:
       //currentX:
-      currentPosition: 2,
-      moveHistory:  [2]
-    },
+      positionHistory:  []
+        },
     3: {
       correctX: 0,
       correctY: 2,
       //currentX:
       //currentY:
-      moveHistory:  [0]
- 
+      positionHistory: [] 
     },
     4: {
       correctX: 0,
       correctY: 3,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     5: {
       correctX: 1,
       correctY: 0,
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     6: {
@@ -44,7 +42,7 @@ let pieces = {
       correctY: 1,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     7: {
@@ -52,7 +50,7 @@ let pieces = {
       correctY: 2,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     8: {
@@ -60,7 +58,7 @@ let pieces = {
       correctY: 3,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     9: {
@@ -68,7 +66,7 @@ let pieces = {
       correctY: 0,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     10: {
@@ -76,7 +74,7 @@ let pieces = {
       correctY: 1,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     11: {
@@ -84,7 +82,7 @@ let pieces = {
       correctY: 2,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     12: {
@@ -92,7 +90,7 @@ let pieces = {
       correctY: 3,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     13: {  
@@ -100,7 +98,7 @@ let pieces = {
       correctY: 0,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     14: {
@@ -108,7 +106,7 @@ let pieces = {
       correctY: 1,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     15: {
@@ -116,7 +114,7 @@ let pieces = {
       correctY: 2,
       //currentX:
       //currentY:
-      moveHistory:  [1]
+      positionHistory: []
     },
     
     empty: {
@@ -124,6 +122,6 @@ let pieces = {
       correctY: 3,
       //currentX:
       //currentY:
-      moveHistory:  [3]
+      positionHistory: []
     }
 }

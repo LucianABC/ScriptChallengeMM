@@ -1,16 +1,18 @@
 
-const movePiece = (pieceNum) => {
-    //Add move to history
-    pieces[pieceNum].moveHistory.push(pieces[pieceNum].currentPosition);
+const movePiece = (pieceKey, newX, newY) => {
+    //Add old position to history
+    let piece = pieces[pieceKey];
+    piece.positionHistory.push([piece.currentX,piece.currentY]);
     piecesMoved.push(pieceNum);
 
-    //Move piece
-    piece = pieces[pieceNum];
-    let DOMPiece = document.querySelector(`#piece-${pieceNum}`);    
-    for (let key of Object.keys(positionMap)){    
-        if(piece.currentPosition==key){
-            DOMPiece.style.top = `${positionMap[key].top}px`;
-            DOMPiece.style.left= `${positionMap[key].left}px`;
-        }   
+    //Move DOM piece
+    if (pieceKey !== "empty"){        
+        let DOMpiece = document.querySelector(`#piece-${pieceKey}`);
+        DOMpiece.style.top = `${positionMap[newY][newX].top}px`; 
+        DOMpiece.style.left =`${positionMap[newY][newX].left}px`;
     }
+
+    //Refresh current position
+    piece.currentX=newX;
+    piece.currentY=newY;
 }

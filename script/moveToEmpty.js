@@ -10,14 +10,11 @@ const isMovable = (pieceNum) => {
                 
             emptyXposition = x;
             emptyYposition = y;
-            console.log(x,y);
             }
         }
-        console.log("for")
     }    
     //Check which positions can be moved and push them into the array
     if (emptyYposition+1 >= 0 && emptyYposition+1 <= 3){
-        console.log(movablePieces); 
         let x=emptyXposition;
         let y=emptyYposition+1;
         movablePieces.push(positionMap[y][x].id);
@@ -26,14 +23,12 @@ const isMovable = (pieceNum) => {
     if (emptyYposition-1 >= 0 && emptyYposition-1 <= 3){
         let x=emptyXposition;
         let y=emptyYposition-1;
-        movablePieces.push(positionMap[y][x].id); 
-        console.log(movablePieces,2);   
+        movablePieces.push(positionMap[y][x].id);  
      }
     if (emptyXposition+1 >= 0 && emptyXposition+1 <= 3){
         let x=emptyXposition+1;
         let y=emptyYposition;
         movablePieces.push(positionMap[y][x].id); 
-        console.log(positionMap[y][x].id);
     }
     if (emptyXposition-1 >= 0 && emptyXposition-1 <= 3){
         let x=emptyXposition-1;
@@ -42,7 +37,6 @@ const isMovable = (pieceNum) => {
         movablePieces.push(positionMap[y][x].id); console.log(positionMap[y][x].id);
     }
    //Check if the piece is movable
-   console.log(movablePieces)
     if (movablePieces.includes(pieceNum)){
         return true
     }
@@ -51,7 +45,6 @@ const isMovable = (pieceNum) => {
 const moveToEmptySlot = (pieceNum) => {   
     //Error if can't be moved
     if (!isMovable(pieceNum)) {
-        console.log("inmovible")
         return "This piece cannot be moved"
     }  
     let emptyX;
@@ -70,7 +63,6 @@ const moveToEmptySlot = (pieceNum) => {
             }
         }
     }
-    console.log(emptyX,emptyY, pieceX,pieceY)
     //Swap position with empty slot
     movePiece("empty",pieceX, pieceY);
     movePiece(pieceNum, emptyX, emptyY);

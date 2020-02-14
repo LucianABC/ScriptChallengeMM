@@ -33,14 +33,6 @@ const totalInversions=()=>{
 const isSolvable=()=> {
     let inversions = totalInversions();
     let isEven  = inversions % 2 == 0;
+    console.log("Es par", isEven)
     return isEven
 }
-
-if (!isSolvable()) {
-    if (emptyLoc.y == 0 && emptyLoc.x <= 1) {
-      swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
-    } else {
-      swapTiles(0, 0, 1, 0);
-    }
-    initEmpty();
-  }

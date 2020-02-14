@@ -3,10 +3,15 @@ const isCompleted = () => {
     let completed = true;
     let keys = Object.keys(pieces);
 
-    for (let key of keys) {
-        if (!(pieces[key].currentPosition == pieces[key].correctPosition)){
-            completed = false;
-            return completed
+    for (let y=0; y<rows; y++){
+        for(let x=0; x<rows; x++){
+            
+            for (let key of keys) {
+                if (!(pieces[key].correctX == x && pieces[key].correctY == y)){
+                    completed = false;
+                    return completed
+                }
+            }
         }
     }
   return completed

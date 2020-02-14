@@ -4,12 +4,12 @@ const calcInversions=(pieceNum, x,y)=>{
     let inversions = 0;
     let lastTile = rows * rows;
     let position = positionMap[y][x];
-    let positionNumber = y*row+x;
+    let positionNumber = y*rows+x;
     
     //Recorre el las posiciones x ssu respectivos numeros a partir de la current
     for (let i = positionNumber + 1; i < lastTile; ++i) {
-      let k = i % row;
-      let l = Math.floor(i / row);
+      let k = i % rows;
+      let l = Math.floor(i / rows);
   
       let compValue = positionMap[k][l].id;
       if (pieceNum > compValue && pieceNum != (lastTile - 1)) {

@@ -1,30 +1,31 @@
 
 const shuffle = () =>{
-    reinitializePuzzle();
     
     let piecesKeys = Object.keys(pieces);
     let piecesUsed = [];
     let positions = rows * rows ; 
     let piecesQuant = positions-1;
     
-    for (let y = 0; y<positions; y++) {
-        for (let x = 0; x<positions; y++){
+    for (let y = 0; y<rows; y++) {
+        for (let x = 0; x<rows; x++){
             
-            let randomIdx= Math.floor(Math.random() * piecesQuant);
+            let randomIdx= Math.floor(Math.random() * positions);
+
             //Check piece hadn't already been asigned a position
-            while (piecesUsed.includes(randomPiece)){
-                randomIdx= Math.floor(Math.random() * piecesQuant);
+            while (piecesUsed.includes(randomIdx)){
+                randomIdx= Math.floor(Math.random() * positions);
             }
+            console.log(x,y,randomIdx)
             piecesUsed.push(randomIdx);
-            pieceKey = piecesKeys[randomIdx]        
-                    
+            pieceKey = piecesKeys[randomIdx];        
+                  console.log(pieceKey);
             movePiece(pieceKey, x, y);
         }
     }
     //If puzzle not solvable, swap first two pieces.
     if(!isSolvable){
         if (positionMap[0][0]==pieces["empty"] || positionMap[0][1]==pieces["empty"]){
-            swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
+          //  swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
         } else {
             let piece1 = positionMap[0][0].id;
             let piece2 = positionMap[0][1].id;

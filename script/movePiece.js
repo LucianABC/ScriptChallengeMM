@@ -13,5 +13,5 @@ const movePiece = (pieceKey, newX, newY) => {
     } 
 
     //Refresh current position in the map
-    positionMap[newY][newX] = piece[piecesKey];
+    positionMap[newY][newX] = piece[pieceKey];
 }

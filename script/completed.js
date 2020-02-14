@@ -5,7 +5,6 @@ const isCompleted = () => {
 
     for (let y=0; y<rows; y++){
         for(let x=0; x<rows; x++){
-            
             for (let key of keys) {
                 if (!(pieces[key].correctX == x && pieces[key].correctY == y)){
                     completed = false;

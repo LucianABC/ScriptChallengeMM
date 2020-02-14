@@ -50,19 +50,30 @@ const isMovable = (tile) => {
 
 const moveToEmptySlot = (pieceNum) => {   
     //Error if can't be moved
+    console.log("entra")
     if (!isMovable(pieceNum)) {
+        console.log("inmovible")
         return "This piece cannot be moved"
     }  
-    //Change empty slot position 
-    let emptyX = pieces["empty"].currentX; 
-    let emptyY =pieces["empty"].currentY;
-
-    let currentXpos = pieces[pieceNum].currentX;
-    let currentYpos = pieces[pieceNum].currentY;
-    pieces["empty"].currentX=currentXpos;
-    pieces["empty"].currentY=currentYpos;
-    
-    //Move piece
+    let emptyX;
+    let emptyY;
+    let pieceX;
+    let pieceY;
+    //Look where are the pieces located
+    for (let x = 0; x<rows; x++){
+        for (let y=0; y<rows; y++){
+            if (positionMap[y][x].id=="empty"){
+                emptyX = x;
+                emptyY= y;
+            } else if (positionMap[y][x].id==pieceNum){
+                pieceX = x;
+                pieceY = y;
+            }
+        }
+    }
+    console.log(emptyX,emptyY, pieceX,pieceY)
+    //Swap position with empty slot
+    movePiece("empty",pieceX, pieceY);
     movePiece(pieceNum, emptyX, emptyY);
 }
 

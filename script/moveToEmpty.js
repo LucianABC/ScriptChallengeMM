@@ -1,56 +1,55 @@
-const isMovable = (tile) => {
-    let tileKey = tile;
-    let emptySpace = pieces.empty;
-    let emptyXposition = emptySpace.currentX;
-    let emptyYposition= emptySpace.currentY;
+const isMovable = (pieceNum) => {
+    let emptyXposition;
+    let emptyYposition;
     let movablePieces = [];
 
-    let keys = Object.keys(pieces);
-    
-    for (let key of keys){
-        if (emptyYposition+1 >= 0 && emptyYposition+1 <= 3){
-            let x=emptyXposition;
-            let y=emptyYposition+1;
-
-            if (pieces[key].currentX == x && pieces[key].currentY == y) {
-                movablePieces.push(key)
+    //Find empty slot position
+    for (let y = 0; y < rows; y++) {
+        for (let x =0; x<rows; x++){
+            if (positionMap[y][x].id =="empty"){
+                
+            emptyXposition = x;
+            emptyYposition = y;
+            console.log(x,y);
             }
         }
-        if (emptyYposition-1 >= 0 && emptyYposition-1 <= 3){
-            let x=emptyXposition;
-            let y=emptyYposition+1;
-
-            if (pieces[key].currentX == x && pieces[key].currentY == y) {
-                movablePieces.push(key)
-            }
-        }
-        if (emptyXposition+1 >= 0 && emptyXposition+1 <= 3){
-            let x=emptyXposition+1;
-            let y=emptyYposition;
-
-            if (pieces[key].currentX == x && pieces[key].currentY == y) {
-                movablePieces.push(key)
-            }
-        }
-        if (emptyXposition-1 >= 0 && emptyXposition-1 <= 3){
-            let x=emptyXposition-1;
-            let y=emptyYposition;
-
-            if (pieces[key].currentX == x && pieces[key].currentY == y) {
-                movablePieces.push(key)
-            }
-        }
-
+        console.log("for")
+    }    
+    //Check which positions can be moved and push them into the array
+    if (emptyYposition+1 >= 0 && emptyYposition+1 <= 3){
+        console.log(movablePieces); 
+        let x=emptyXposition;
+        let y=emptyYposition+1;
+        movablePieces.push(positionMap[y][x].id);
+      
     }
-    
-    if (movablePieces.includes(tileKey)){
+    if (emptyYposition-1 >= 0 && emptyYposition-1 <= 3){
+        let x=emptyXposition;
+        let y=emptyYposition-1;
+        movablePieces.push(positionMap[y][x].id); 
+        console.log(movablePieces,2);   
+     }
+    if (emptyXposition+1 >= 0 && emptyXposition+1 <= 3){
+        let x=emptyXposition+1;
+        let y=emptyYposition;
+        movablePieces.push(positionMap[y][x].id); 
+        console.log(positionMap[y][x].id);
+    }
+    if (emptyXposition-1 >= 0 && emptyXposition-1 <= 3){
+        let x=emptyXposition-1;
+        let y=emptyYposition;
+        
+        movablePieces.push(positionMap[y][x].id); console.log(positionMap[y][x].id);
+    }
+   //Check if the piece is movable
+   console.log(movablePieces)
+    if (movablePieces.includes(pieceNum)){
         return true
     }
 };
 
 const moveToEmptySlot = (pieceNum) => {   
     //Error if can't be moved
-    console.log("entra")
     if (!isMovable(pieceNum)) {
         console.log("inmovible")
         return "This piece cannot be moved"

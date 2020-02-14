@@ -10,7 +10,6 @@ const isCompleted = () => {
         }
     }
   return completed
-
 }
 
 const puzzleCompleted = () => {

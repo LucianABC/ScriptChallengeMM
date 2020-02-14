@@ -53,7 +53,7 @@ const moveToEmptySlot = (pieceNum) => {
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     }  
-    //Change position with empty slot
+    //Change empty slot position 
     let emptyX = pieces["empty"].currentX; 
     let emptyY =pieces["empty"].currentY;
 

@@ -1,30 +1,40 @@
 
 const shuffle = () =>{
-    
     reinitializePuzzle();
     
     let piecesKeys = Object.keys(pieces);
-    let positionsUsed = [];
-    let positionKeys = Object.keys(positionMap);
-
-    for (let key of piecesKeys) {
-        let randomNum= Math.floor(Math.random() * positionKeys.length);
-        //Check position hasn't already been asigned
-        while (positionsUsed.includes(randomNum)){
-            randomNum= Math.floor(Math.random() * positionKeys.length);
-        }
-        positionsUsed.push(randomNum);
-
-        pieces[key].currentPosition = randomNum;
-        pieces[key].moveHistory=[randomNum];
-
-        if (key !== "empty"){
-            movePiece(key);
+    let piecesUsed = [];
+    let positions = rows * rows ; 
+    let piecesQuant = positions-1;
+    
+    for (let y = 0; y<positions; y++) {
+        for (let x = 0; x<positions; y++){
+            
+            let randomIdx= Math.floor(Math.random() * piecesQuant);
+            //Check piece hadn't already been asigned a position
+            while (piecesUsed.includes(randomPiece)){
+                randomIdx= Math.floor(Math.random() * piecesQuant);
+            }
+            piecesUsed.push(randomIdx);
+            pieceKey = piecesKeys[randomIdx]        
+                    
+            movePiece(pieceKey, x, y);
         }
     }
-    piecesMoved = [];
+    //If puzzle not solvable, swap first two pieces.
+    if(!isSolvable){
+        if (positionMap[0][0]==pieces["empty"] || positionMap[0][1]==pieces["empty"]){
+            swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
+        } else {
+            let piece1 = positionMap[0][0].id;
+            let piece2 = positionMap[0][1].id;
+            movePiece(piece1,1,0);
+            movePiece(piece2,0,0);
+        }
+    }
+     
+    deleteHistory();
 }
-
 
 const shuffleButton = document.querySelector("#shuffle-button");
 shuffleButton.addEventListener("click", shuffle);

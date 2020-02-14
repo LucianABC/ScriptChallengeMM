@@ -15,10 +15,9 @@ const shuffle = () =>{
             while (piecesUsed.includes(randomIdx)){
                 randomIdx= Math.floor(Math.random() * positions);
             }
-            console.log(x,y,randomIdx)
             piecesUsed.push(randomIdx);
             pieceKey = piecesKeys[randomIdx];        
-                  console.log(pieceKey);
+             
             movePiece(pieceKey, x, y);
         }
     }

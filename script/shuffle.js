@@ -21,22 +21,13 @@ const shuffle = () =>{
             movePiece(pieceKey, x, y);
         }
     }
-    //If puzzle not solvable, swap first two pieces.
+    //If puzzle not solvable, re-shuffle 
     let solvable = isSolvable();
     console.log(solvable)
-    if(!solvable){
-        let piece1 = positionMap[0][0].id;
-        let piece2 = positionMap[0][1].id;
-        movePiece(piece1,1,0);
-        movePiece(piece2,0,0);
-        console.log(piece1, piece2)
-        //if (positionMap[0][0]==pieces["empty"] || positionMap[0][1]==pieces["empty"]){
-          //  swapTiles(tileCount - 2, tileCount - 1, tileCount - 1, tileCount - 1);
-       // } else {
-         // }
+    if(solvable==false){
+       shuffle();
     }
-     let solvable2 =isSolvable();
-     console.log("Es resoluble", solvable2)
+    
     deleteHistory();
 }
 

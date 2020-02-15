@@ -27,12 +27,26 @@ const totalInversions=()=>{
         inversions += calcInversions(pieceNum, x, y);
       }
     }
+    console.log(inversions)
     return inversions;
 };
+//If the grid width is even, and the blank is on an even row counting from the bottom 
+//then the number of inversions in a solvable situation is odd.
+//If the grid width is even, and the blank is on an odd row counting from the bottom 
+//then the number of inversions in a solvable situation is even.
 
 const isSolvable=()=> {
-    let inversions = totalInversions();
-    let isEven  = inversions % 2 == 0;
-    console.log("Es par", isEven)
-    return isEven
+  let inversions = totalInversions();
+  let position =findPiecePosition("empty");
+  let emptyRow =position.y;
+  let solvable;
+  
+  if ((inversions % 2 == 0) && (emptyRow ==1 || emptyRow==3)){
+      solvable = true;
+  } else if ((inversions % 2 !== 0) &&(emptyRow ==2 || emptyRow==0)){
+    solvable = true;
+  } else {
+    solvable = false;
+  }    
+    return solvable
 }

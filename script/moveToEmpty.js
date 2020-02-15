@@ -1,38 +1,28 @@
 const isMovable = (pieceNum) => {
-    let emptyXposition;
-    let emptyYposition;
-    let movablePieces = [];
+     let movablePieces = [];
 
     //Find empty slot position
-    for (let y = 0; y < rows; y++) {
-        for (let x =0; x<rows; x++){
-            if (positionMap[y][x].id =="empty"){
-                
-            emptyXposition = x;
-            emptyYposition = y;
-            }
-        }
-    }    
+    let emptyPosition = findPiecePosition("empty")
+  
     //Check which positions can be moved and push them into the array
-    if (emptyYposition+1 >= 0 && emptyYposition+1 <= 3){
-        let x=emptyXposition;
-        let y=emptyYposition+1;
+    if (emptyPosition.y+1 >= 0 && emptyPosition.y+1 <= 3){
+        let x=emptyPosition.x;
+        let y=emptyPosition.y+1;
         movablePieces.push(positionMap[y][x].id);
-      
     }
-    if (emptyYposition-1 >= 0 && emptyYposition-1 <= 3){
-        let x=emptyXposition;
-        let y=emptyYposition-1;
+    if (emptyPosition.y-1 >= 0 && emptyPosition.y-1 <= 3){
+        let x=emptyPosition.x;
+        let y=emptyPosition.y-1;
         movablePieces.push(positionMap[y][x].id);  
      }
-    if (emptyXposition+1 >= 0 && emptyXposition+1 <= 3){
-        let x=emptyXposition+1;
-        let y=emptyYposition;
+    if (emptyPosition.x+1 >= 0 && emptyPosition.x+1 <= 3){
+        let x=emptyPosition.x+1;
+        let y=emptyPosition.y;
         movablePieces.push(positionMap[y][x].id); 
     }
-    if (emptyXposition-1 >= 0 && emptyXposition-1 <= 3){
-        let x=emptyXposition-1;
-        let y=emptyYposition;
+    if (emptyPosition.x-1 >= 0 && emptyPosition.x-1 <= 3){
+        let x=emptyPosition.x-1;
+        let y=emptyPosition.y;
         
         movablePieces.push(positionMap[y][x].id); 
     }
@@ -47,7 +37,7 @@ const moveToEmptySlot = (pieceNum) => {
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     }  
-    
+
     //Look where are the pieces located
     let emptyPos = findPiecePosition("empty");
     let piecePos= findPiecePosition(pieceNum);

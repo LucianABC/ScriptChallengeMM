@@ -1,12 +1,10 @@
-let rows = positionMap.length;
-
 const calcInversions=(pieceNum, x,y)=>{
     let inversions = 0;
     let lastTile = rows * rows;
     let position = positionMap[y][x];
     let positionNumber = y*rows+x;
     
-    //Recorre el las posiciones x ssu respectivos numeros a partir de la current
+    //Recorre el las posiciones x sus respectivos numeros a partir de la currentposition
     for (let i = positionNumber + 1; i < lastTile; ++i) {
       let k = i % rows;
       let l = Math.floor(i / rows);
@@ -30,10 +28,11 @@ const totalInversions=()=>{
     console.log(inversions)
     return inversions;
 };
-//If the grid width is even, and the blank is on an even row counting from the bottom 
-//then the number of inversions in a solvable situation is odd.
-//If the grid width is even, and the blank is on an odd row counting from the bottom 
-//then the number of inversions in a solvable situation is even.
+
+//"If the grid width is even, and the blank is on an even row counting from the bottom 
+//then the number of inversions in a solvable situation is odd."
+//"If the grid width is even, and the blank is on an odd row counting from the bottom 
+//then the number of inversions in a solvable situation is even."
 
 const isSolvable=()=> {
   let inversions = totalInversions();

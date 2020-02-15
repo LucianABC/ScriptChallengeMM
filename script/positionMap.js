@@ -1,5 +1,6 @@
 let tileSize=100;
 
+
 let positionMap = [
   //1st row
   [pieces[1],pieces[2], pieces[3], pieces[4] ],
@@ -10,6 +11,8 @@ let positionMap = [
   //4th row
   [pieces[13],pieces[14], pieces[15], pieces["empty"] ]
 ]
+
+let rows = positionMap.length;
 
 const movementMap = [
   //1st row

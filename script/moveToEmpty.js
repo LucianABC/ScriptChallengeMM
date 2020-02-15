@@ -34,7 +34,7 @@ const isMovable = (pieceNum) => {
         let x=emptyXposition-1;
         let y=emptyYposition;
         
-        movablePieces.push(positionMap[y][x].id); console.log(positionMap[y][x].id);
+        movablePieces.push(positionMap[y][x].id); 
     }
    //Check if the piece is movable
     if (movablePieces.includes(pieceNum)){

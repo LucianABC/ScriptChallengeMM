@@ -3,7 +3,6 @@ const undo = () => {
     let lastPieceMoved = piecesMoved[piecesMoved.length-1];
     moveToEmptySlot(lastPieceMoved);
     piecesMoved.splice(-2);
-    pieces[lastPieceMoved].positionHistory.splice(-2);
 }
 //Undo last move
 const undoButton = document.querySelector("#undo-button");

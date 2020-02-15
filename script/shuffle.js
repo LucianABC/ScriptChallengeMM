@@ -24,7 +24,7 @@ const shuffle = () =>{
        shuffle();
     }
 
-    deleteHistory();
+    piecesMoved=[];
 }
 
 const shuffleButton = document.querySelector("#shuffle-button");

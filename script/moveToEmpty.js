@@ -1,6 +1,5 @@
 const isMovable = (pieceNum) => {
-     let movablePieces = [];
-
+    let movablePieces = [];
     //Find empty slot position
     let emptyPosition = findPiecePosition("empty")
   
@@ -14,7 +13,7 @@ const isMovable = (pieceNum) => {
         let x=emptyPosition.x;
         let y=emptyPosition.y-1;
         movablePieces.push(positionMap[y][x].id);  
-     }
+    }
     if (emptyPosition.x+1 >= 0 && emptyPosition.x+1 <= 3){
         let x=emptyPosition.x+1;
         let y=emptyPosition.y;
@@ -23,7 +22,6 @@ const isMovable = (pieceNum) => {
     if (emptyPosition.x-1 >= 0 && emptyPosition.x-1 <= 3){
         let x=emptyPosition.x-1;
         let y=emptyPosition.y;
-        
         movablePieces.push(positionMap[y][x].id); 
     }
    //Check if the piece is movable
@@ -37,18 +35,15 @@ const moveToEmptySlot = (pieceNum) => {
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     }  
-
     //Look where are the pieces located
     let emptyPos = findPiecePosition("empty");
     let piecePos= findPiecePosition(pieceNum);
-
     //Swap position with empty slot
     movePiece("empty",piecePos.x, piecePos.y);
     movePiece(pieceNum, emptyPos.x, emptyPos.y);
 }
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");
-
 DOMpieces.forEach(piece => 
     piece.addEventListener("click", ()=>{
         let pieceNumber = parseInt(piece.innerHTML);

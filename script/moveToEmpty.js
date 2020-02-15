@@ -47,25 +47,14 @@ const moveToEmptySlot = (pieceNum) => {
     if (!isMovable(pieceNum)) {
         return "This piece cannot be moved"
     }  
-    let emptyX;
-    let emptyY;
-    let pieceX;
-    let pieceY;
+    
     //Look where are the pieces located
-    for (let x = 0; x<rows; x++){
-        for (let y=0; y<rows; y++){
-            if (positionMap[y][x].id=="empty"){
-                emptyX = x;
-                emptyY= y;
-            } else if (positionMap[y][x].id==pieceNum){
-                pieceX = x;
-                pieceY = y;
-            }
-        }
-    }
+    let emptyPos = findPiecePosition("empty");
+    let piecePos= findPiecePosition(pieceNum);
+
     //Swap position with empty slot
-    movePiece("empty",pieceX, pieceY);
-    movePiece(pieceNum, emptyX, emptyY);
+    movePiece("empty",piecePos.x, piecePos.y);
+    movePiece(pieceNum, emptyPos.x, emptyPos.y);
 }
 
 let DOMpieces = document.querySelectorAll(".puzzle-piece");

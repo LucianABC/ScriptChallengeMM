@@ -5,20 +5,16 @@ const undo = () => {
     piecesMoved.splice(-2);
     pieces[lastPieceMoved].positionHistory.splice(-2);
 }
-
-const undoButton = document.querySelector("#undo-button");
-
 //Undo last move
+const undoButton = document.querySelector("#undo-button");
 undoButton.addEventListener("click", undo);
 
 //Restart puzzle
 const restartPuzzle = () => {
   let length = piecesMoved.length;
-   for (let i = 0; i<length; i++){
-    
+  for (let i = 0; i<length; i++){
     undo();
-   }
-   
+  }
 }
 
 const restartButton = document.querySelector("#restart-button");

@@ -13,14 +13,12 @@ undoButton.addEventListener("click", undo);
 
 //Restart puzzle
 const restartPuzzle = () => {
-    reinitializePuzzle();
-    let piecesKeys = Object.keys(pieces);
-    for (let key of piecesKeys) {
-      if (key !== "empty"){
-        undo(key, 0);
-      } 
-    }
-    piecesMoved = [];
+  let length = piecesMoved.length;
+   for (let i = 0; i<length; i++){
+    
+    undo();
+   }
+   
 }
 
 const restartButton = document.querySelector("#restart-button");

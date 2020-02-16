@@ -1,6 +1,5 @@
 let tileSize=100;
 
-
 let positionMap = [
   //1st row
   [pieces[1],pieces[2], pieces[3], pieces[4] ],

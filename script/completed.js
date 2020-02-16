@@ -1,16 +1,17 @@
 const isCompleted = () => {
 
     let completed = true;
-    let keys = Object.keys(pieces);
+    
 
     for (let y=0; y<rows; y++){
         for(let x=0; x<rows; x++){
-            for (let key of keys) {
-                if (!(pieces[key].correctX == x && pieces[key].correctY == y)){
-                    completed = false;
-                    return completed
-                }
-            }
+          if (positionMap[y][x].correctX !== x || positionMap[y][x].correctY!==y){
+            completed = false;
+            
+            console.log (positionMap[y][x], x, y)
+            return completed
+          }
+          
         }
     }
   return completed

@@ -22,10 +22,8 @@ const totalInversions=()=>{
     let inversions = 0;
     for (let y = 0; y < rows; ++y) {
       for (let x = 0; x < rows; ++x) {
-        
         let pieceNum = positionMap[y][x].id;
         if(pieceNum != "empty"){
-          
           inversions += calcInversions(pieceNum, x, y);
         }
       }
